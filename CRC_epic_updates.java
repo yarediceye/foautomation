@@ -114,7 +114,7 @@ try {
             //Create RETURN tickets based on the new image IDs field
             if (newIDsString != null) {
                 String[] listfNewIds = newIDsString.split(/\s+|,/)
-                returnOriginFieldvalue = "Preemptive investigation"
+                returnOriginFieldvalue = "Actual return"
                 createReturnTicket(listfNewIds, issueKey, projectKey, techContactFieldid, techContactFieldvalue, csContactFieldid, csContactFieldvalue, salesContactFieldid, salesContactFieldvalue, summaryFieldvalue, returnOriginFieldid, returnOriginFieldvalue)
             }
 
@@ -123,7 +123,18 @@ try {
 
         //If the Image IDs not edited - do nothing    
     } else {
-        //logger.info("field ID IS NOT UPDATED - NOTHING TO DO")
+        //logger.info("field ID IS NOT UPDATED - NOTHING TO DO")\
+					
+				
+		 //Create RETURN tickets based on the image IDs field
+    if (imageIDstFieldvalue != null) {
+        String[] imageIDs = imageIDstFieldvalue.split(/\s+|,/)
+        returnOriginFieldvalue = "Actual return"
+        createReturnTicket(imageIDs, issueKey, projectKey, techContactFieldid, techContactFieldvalue, csContactFieldid, csContactFieldvalue, salesContactFieldid, salesContactFieldvalue, summaryFieldvalue, returnOriginFieldid, returnOriginFieldvalue)
+
+
+    }
+		
 
     }
 
@@ -132,6 +143,9 @@ try {
 } catch (Exception e) {
 
 
+logger.info("Some crazy error happened...")
+
+/**
     logger.info("Ticket is being created - create a return for all IDs")
     newReturn=true
     //Create RETURN tickets based on the image IDs field
@@ -142,7 +156,7 @@ try {
 
 
     }
-
+*/
 }
 
 
